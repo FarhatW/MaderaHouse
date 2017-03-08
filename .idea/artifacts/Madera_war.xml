@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Madera:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="Madera.war">
+      <element id="artifact" artifact-name="Madera:war exploded" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/WebContent/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>
