@@ -20,8 +20,8 @@
                 login-page="/login"
                 default-target-url="/welcome"
                 authentication-failure-url="/login?error"
-                username-parameter="email"
-                password-parameter="password"
+                username-parameter="mail"
+                password-parameter="mpd"
         />
 
         <logout logout-success-url="/login?logout"
@@ -37,12 +37,11 @@
             <password-encoder ref="encoder" />
             <jdbc-user-service data-source-ref="dataSource"
                                users-by-username-query=
-                                       "select email,password, enabled from users where email=?"
+                                       "select mail,mpd, enabled from utilisateur where mail=?"
                                authorities-by-username-query=
-                                       "select users.email, groups.name from users
-	  				                    inner join group_has_users on group_has_users.user_id=users.id
-					                    inner join groups ON groups.id=group_has_users.group_id
-					                    where users.email=?" />
+                                       "select utilisateur.mail, groupe.nom from utilisateur
+                                        inner join groupe ON groupe.id=utilisateur.Groupe_id
+                                        where utilisateur.mail=?" />
         </authentication-provider>
     </authentication-manager>
 

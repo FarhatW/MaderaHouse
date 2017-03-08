@@ -61,16 +61,16 @@
                         <%--<label for="inputEmail" class="col-md-2 control-label">Email</label>--%>
 
                         <div class="col-md-8" style="max-width: none">
-                            <input type="email" class="form-control" id="email"
-                                   placeholder="<spring:message code='label.email'/>" name='email'>
+                            <input type="email" class="form-control" id="mail"
+                                   placeholder="<spring:message code='label.mail'/>" name='mail'>
                         </div>
                     </div>
                     <div class="form-group">
                         <%--<label for="inputPassword" class="col-md-2 control-label">Password</label>--%>
 
                         <div class="col-md-8" style="max-width: none">
-                            <input type="password" class="form-control" name='password' id="password"
-                                   placeholder="<spring:message code='label.password'/>">
+                            <input type="password" class="form-control" name='mpd' id="mpd"
+                                   placeholder="<spring:message code='label.mpd'/>">
                         </div>
                     </div>
                     <div class="form-group" style="text-align: center">
