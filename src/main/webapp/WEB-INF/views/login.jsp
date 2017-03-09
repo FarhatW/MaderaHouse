@@ -18,7 +18,6 @@
         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
 
         <link rel="stylesheet" href="<c:url value="../resources/CSS/main.css" />" />
-        <link rel="stylesheet" href="<c:url value="../resources/CSS/style.css" />" />
         <link rel="stylesheet" href="<c:url value="../resources/CSS/bootstrap.min.css" />" />
 
         <script src="<c:url value="../resources/js/jquery-3.1.1.min.js" />" ></script>
@@ -29,42 +28,38 @@
 
     </head>
     <body>
-    <header style="height: 200px; background-color: #6e6356">
-        <h1 style="color: #fff; padding-top:150px; margin:0" class="text-center">MADERA</h1>
-    </header>
-    <section class="container">
+        <header>
+            <h1 class="text-center">MADERA</h1>
+        </header>
 
-        <p class="text-center" style="color: #6e6356; margin: 25px 0">Création de devis pour maison modulaire</p>
+        <section class="container login">
+            <p class="text-center space browncolor">Création de devis pour maison modulaire</p>
 
-        <form name='loginForm'
-              action="<c:url value='/j_spring_security_check' />" method='POST'>
-            <div class="input col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4 form-group" style="margin-top:25px">
+            <form name='loginForm' action="<c:url value='/j_spring_security_check' />" method='POST'>
+                <div class="input col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4 form-group" style="margin-top:25px">
+                    <div class="form-group">
+                        <p>Identifiant : </p>
+                        <input type="email" class="form-control" id=mail" placeholder="<spring:message code='label.mail'/>" name='mail'>
+                    </div>
 
-                <div class="form-group">
-                <p>Identifiant : </p>
-                <input type="email" class="form-control" id=mail" placeholder="<spring:message code='label.mail'/>" name='mail' style="width:100%">
+                    <div class="form-group space">
+                        <p>Mot de passe  : </p>
+                        <input type="password" class="form-control" name='mpd' id="mpd" placeholder="<spring:message code='label.mpd'/>">
+                    </div>
+
+                    <c:if test="${not empty error}">
+                        <div class="alert alert-warning">${error}</div>
+                    </c:if>
+                    <c:if test="${not empty msg}">
+                        <div class="alert alert-info">${msg}</div>
+                    </c:if>
+
+                    <button type="submit" class="pull-right btn connexion space" id="submit"><spring:message code='btn.connect'/></button>
                 </div>
-
-                <div class="form-group">
-                <p style="margin-top:20px">Mot de passe  : </p>
-                    <input type="password" class="form-control" name='mpd' id="mpd"
-                           placeholder="<spring:message code='label.mpd'/>" style="width:100%">
-
+                <div>
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                 </div>
-                <c:if test="${not empty error}">
-                    <div class="alert alert-warning">${error}</div>
-                </c:if>
-                <c:if test="${not empty msg}">
-                    <div class="alert alert-info">${msg}</div>
-                </c:if>
-                <button type="submit" class="pull-right btn connexion" style="margin-top : 20px;" id="submit"><spring:message
-                        code='btn.connect'/></button>
-            </div>
-
-            <div>
-                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-            </div>
-        </form>
-    </section>
+            </form>
+        </section>
     </body>
 </html>

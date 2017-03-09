@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.ril.madera.model.Users;
 import org.ril.madera.service.ServicesUser;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -30,7 +29,7 @@ public class UserController {
 	private static final String SEPARATOR_SPLITTER = "\\.";
 	private Mac hmac;
 
-	@RequestMapping(value =  { "/", "/welcome**" }, method = RequestMethod.GET, headers = "Accept=application/json")
+	@RequestMapping(value =  { "/", "/index**" }, method = RequestMethod.GET, headers = "Accept=application/json")
 	public ModelAndView defaultPage() {
 //		List<Users> listOfUsers = serviceUser.getAll();
 //		model.addAttribute("country", new Users());
@@ -38,7 +37,7 @@ public class UserController {
 		ModelAndView model = new ModelAndView();
 		model.addObject("title", "Spring Security Login Form - Database Authentication");
 		model.addObject("message", "This is default page!");
-		model.setViewName("users");
+		model.setViewName("Index");
 		return model;
 	}
 
