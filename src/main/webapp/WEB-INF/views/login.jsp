@@ -18,71 +18,53 @@
         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
 
         <link rel="stylesheet" href="<c:url value="../resources/CSS/main.css" />" />
-        <link rel="stylesheet" href="<c:url value="../resources/js/bootstrap-4.0.0-alpha.6-dist/css/bootstrap.min.css" />" />
-        <link rel="stylesheet" href="<c:url value="../resources/js/bootstrap-material-design-master/dist/css/bootstrap-material-design.min.css" />" />
-        <link rel="stylesheet" href="<c:url value="../resources/js/bootstrap-material-design-master/dist/css/ripples.min.css" />" />
-
+        <link rel="stylesheet" href="<c:url value="../resources/CSS/style.css" />" />
+        <link rel="stylesheet" href="<c:url value="../resources/CSS/bootstrap.min.css" />" />
 
         <script src="<c:url value="../resources/js/jquery-3.1.1.min.js" />" ></script>
-        <script src="<c:url value="../resources/js/tether-1.3.3/dist/js/tether.min.js" />" ></script>
 
-
-        <script src="<c:url value="../resources/js/bootstrap-material-design-master/dist/js/material.min.js" />" ></script>
-        <script src="<c:url value="../resources/js/bootstrap-material-design-master/dist/js/ripples.js" />" ></script>
     <script>
         $.material.init();
     </script>
-        <%--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">--%>
-        <%--<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>--%>
-        <%--<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>--%>
-        <%--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>--%>
-
 
     </head>
     <body>
-    <div class="background-main">
+    <header style="height: 200px; background-color: #6e6356">
+        <h1 style="color: #fff; padding-top:150px; margin:0" class="text-center">MADERA</h1>
+    </header>
+    <section class="container">
 
-    </div>
-    <c:if test="${not empty error}">
-        <div class="alert alert-warning">${error}</div>
-    </c:if>
-    <c:if test="${not empty msg}">
-        <div class="alert alert-info">${msg}</div>
-    </c:if>
+        <p class="text-center" style="color: #6e6356; margin: 25px 0">Création de devis pour maison modulaire</p>
 
-    <div class="form-login">
-        <div class=" container col-lg-3 col-md-5 col-sm-5 col-xs-12">
+        <form name='loginForm'
+              action="<c:url value='/j_spring_security_check' />" method='POST'>
+            <div class="input col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4 form-group" style="margin-top:25px">
 
-            <form name='loginForm'
-                  action="<c:url value='/j_spring_security_check' />" method='POST'>
-                <fieldset>
+                <div class="form-group">
+                <p>Identifiant : </p>
+                <input type="email" class="form-control" id=mail" placeholder="<spring:message code='label.mail'/>" name='mail' style="width:100%">
+                </div>
 
-                    <div class="form-group">
-                        <%--<label for="inputEmail" class="col-md-2 control-label">Email</label>--%>
+                <div class="form-group">
+                <p style="margin-top:20px">Mot de passe  : </p>
+                    <input type="password" class="form-control" name='mpd' id="mpd"
+                           placeholder="<spring:message code='label.mpd'/>" style="width:100%">
 
-                        <div class="col-md-8" style="max-width: none">
-                            <input type="email" class="form-control" id="mail"
-                                   placeholder="<spring:message code='label.mail'/>" name='mail'>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <%--<label for="inputPassword" class="col-md-2 control-label">Password</label>--%>
+                </div>
+                <c:if test="${not empty error}">
+                    <div class="alert alert-warning">${error}</div>
+                </c:if>
+                <c:if test="${not empty msg}">
+                    <div class="alert alert-info">${msg}</div>
+                </c:if>
+                <button type="submit" class="pull-right btn connexion" style="margin-top : 20px;" id="submit"><spring:message
+                        code='btn.connect'/></button>
+            </div>
 
-                        <div class="col-md-8" style="max-width: none">
-                            <input type="password" class="form-control" name='mpd' id="mpd"
-                                   placeholder="<spring:message code='label.mpd'/>">
-                        </div>
-                    </div>
-                    <div class="form-group" style="text-align: center">
-                        <button type="submit" id="submit" class="btn btn-raised"><spring:message
-                                code='btn.connect'/></button>
-                    </div>
-                    <div>
-                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-                    </div>
-                </fieldset>
-            </form>
-        </div>
-    </div>
+            <div>
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+            </div>
+        </form>
+    </section>
     </body>
 </html>

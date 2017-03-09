@@ -1,0 +1,14 @@
+body {
+  background-color:red;
+}
+
+.connexion, .connexion:focus {
+	background-color: #046839;
+	color: #fff !important;
+}
+
+.connexion:hover {
+	background-color: #8dc541;
+	color: #fff !important;
+	border: 1px solid #046839;
+}
