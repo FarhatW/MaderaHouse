@@ -6,7 +6,7 @@ import javax.persistence.*;
  * This is our model class and it corresponds to Country table in database
  */
 @Entity
-@Table(name="USERS")
+@Table(name="utilisateur")
 public class Users {
 
 	@Id
@@ -14,23 +14,23 @@ public class Users {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	int id;
 
-	@Column(name="first_name")
+	@Column(name="prenom")
 	String first_name;
 
-	@Column(name="last_name")
+	@Column(name="nom")
 	long last_name;
 
-	@Column(name="email")
+	@Column(name= "mail")
 	long email;
 
-	@Column(name="phone")
+	@Column(name="numeroTel")
 	long phone;
-
-	@Column(name="qr_code_id")
-	long qr_code_id;
 
 	@Column(name="token")
 	long token;
+
+	@Column(name="token_expir")
+	long expire;
 
 	public Users() {
 		super();
@@ -42,7 +42,22 @@ public class Users {
 		this.last_name = last_name;
 		this.email = email;
 		this.phone = phone;
-		this.qr_code_id = qr_code_id;
+	}
+
+	public long getToken() {
+		return token;
+	}
+
+	public void setToken(long token) {
+		this.token = token;
+	}
+
+	public long getExpire() {
+		return expire;
+	}
+
+	public void setExpire(long expire) {
+		this.expire = expire;
 	}
 
 	public int getId() {
@@ -85,11 +100,4 @@ public class Users {
 		this.phone = phone;
 	}
 
-	public long getQr_code_id() {
-		return qr_code_id;
-	}
-
-	public void setQr_code_id(long qr_code_id) {
-		this.qr_code_id = qr_code_id;
-	}
 }

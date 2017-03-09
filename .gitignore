@@ -1,3 +1,7 @@
 target/
+<<<<<<< HEAD
 /.idea
 /.settings
+=======
+.idea/
+>>>>>>> develop
