@@ -25,8 +25,8 @@
     </div>
     <div class="col-xs-3 col-xs-offset-2">
         <p class="pull-right" style="color: #6e6356; margin-top: 60px">
-            <c:if test="${pageContext.request.userPrincipal.name != null}">
-            Bonjour M. ${pageContext.request.userPrincipal.name},<br/>
+            <c:if test="${user.getlastName() != null}">
+            Bonjour M. ${user.getlastName()},<br/>
             <a href="javascript:formSubmit()"> Deconnexion</a>
             </c:if>
         </p>
@@ -51,7 +51,7 @@
     </div>
 
     <div class="col-xs-8 col-xs-offset-2" style="margin-top:100px">
-        <a href="EditDevis.html">
+        <a href="/EditDevis">
             <button type="button" class="btn btn-secondary btn-lg btn-block" style="height:100px; background-color:#fff; border: 1px solid #000; box-shadow: 8px 8px 12px #aaa;">Suivre / Modifier un devis </button>
         </a>
     </div>

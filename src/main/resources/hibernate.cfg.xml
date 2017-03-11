@@ -6,5 +6,9 @@
 <hibernate-configuration>
     <session-factory>
 		<mapping class="org.ril.madera.model.Users" />
+        <mapping class="org.ril.madera.model.Groupe" />
+        <mapping class="org.ril.madera.model.Pays" />
+        <mapping class="org.ril.madera.model.Ville" />
+        <mapping class="org.ril.madera.model.Site" />
     </session-factory>
 </hibernate-configuration>

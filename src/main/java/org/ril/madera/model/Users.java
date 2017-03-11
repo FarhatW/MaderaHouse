@@ -2,102 +2,132 @@ package org.ril.madera.model;
 
 import javax.persistence.*;
 
+import org.ril.madera.model.Groupe;
+
 /*
  * This is our model class and it corresponds to Country table in database
  */
 @Entity
-@Table(name="utilisateur")
+@Table(name = "utilisateur")
 public class Users {
 
-	@Id
-	@Column(name="id")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	int id;
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-	@Column(name="prenom")
-	String first_name;
+    @Column(name = "prenom")
+    private String firstName;
 
-	@Column(name="nom")
-	long last_name;
+    @Column(name = "nom")
+    private String lastName;
 
-	@Column(name= "mail")
-	long email;
+    @Column(name = "mail")
+    private String email;
 
-	@Column(name="numeroTel")
-	long phone;
+    @Column(name = "numeroTel")
+    private String phone;
 
-	@Column(name="token")
-	long token;
+    @Column(name = "token")
+    private String token;
 
-	@Column(name="token_expir")
-	long expire;
+    @ManyToOne
+    @JoinColumn(name = "Groupe_id")
+    private Groupe group;
 
-	public Users() {
-		super();
-	}
+    @ManyToOne
+    @JoinColumn(name = "Site_id")
+    private Site site;
 
-	public Users(String first_name, long last_name, long email, long phone, long qr_code_id) {
-		super();
-		this.first_name = first_name;
-		this.last_name = last_name;
-		this.email = email;
-		this.phone = phone;
-	}
+    @Column(name = "token_expir")
+    private String expire;
 
-	public long getToken() {
-		return token;
-	}
 
-	public void setToken(long token) {
-		this.token = token;
-	}
+    public Users() {
+        super();
+    }
 
-	public long getExpire() {
-		return expire;
-	}
+    public Users(String firstName, String lastName, String email, String phone) {
+        super();
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phone = phone;
+    }
 
-	public void setExpire(long expire) {
-		this.expire = expire;
-	}
+    public String getToken() {
+        return token;
+    }
 
-	public int getId() {
-		return id;
-	}
+    public void setToken(String token) {
+        this.token = token;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public String getExpire() {
+        return expire;
+    }
 
-	public String getFirst_name() {
-		return first_name;
-	}
+    public void setExpire(String expire) {
+        this.expire = expire;
+    }
 
-	public void setFirst_name(String first_name) {
-		this.first_name = first_name;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public long getLast_name() {
-		return last_name;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setLast_name(long last_name) {
-		this.last_name = last_name;
-	}
+    public String getfirstName() {
+        return firstName;
+    }
 
-	public long getEmail() {
-		return email;
-	}
+    public void setfirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-	public void setEmail(long email) {
-		this.email = email;
-	}
+    public String getlastName() {
+        return lastName;
+    }
 
-	public long getPhone() {
-		return phone;
-	}
+    public void setlastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-	public void setPhone(long phone) {
-		this.phone = phone;
-	}
+    public String getEmail() {
+        return email;
+    }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getGroup() {
+        return group.getNom();
+    }
+
+    public String getAdress() {
+        return site.getAdress();
+    }
+
+    public String getVille() {
+        return site.getVille();
+    }
+
+    public String getCp() {
+        return site.getCp();
+    }
+
+    public String getPays() {
+        return site.getPays();
+    }
 }

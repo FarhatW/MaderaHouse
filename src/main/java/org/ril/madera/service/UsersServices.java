@@ -1,7 +1,7 @@
 package org.ril.madera.service;
 
 import org.ril.madera.model.Users;
-import org.ril.madera.repository.RepositoryUser;
+import org.ril.madera.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,15 +11,15 @@ import java.util.Iterator;
 import java.util.List;
 
 @Service("UsersService")
-public class ServicesUser {
+public class UsersServices {
 
     @Autowired
-    RepositoryUser repositoryUser;
+    UsersRepository usersRepository;
 
     @Transactional
     public List<Users> getAll() {
         List<Users> countries = new ArrayList<Users>();
-        Iterable<Users> countriesIterable = repositoryUser.findAll();
+        Iterable<Users> countriesIterable = usersRepository.findAll();
         Iterator<Users> countriesIterator = countriesIterable.iterator();
         while (countriesIterator.hasNext()) {
             countries.add(countriesIterator.next());
@@ -29,27 +29,38 @@ public class ServicesUser {
 
     @Transactional
     public Users getById(int id) {
-        return repositoryUser.findOne(id);
+        return usersRepository.findOne(id);
     }
 
     @Transactional
     public Users getByEmail(String email) {
-        return repositoryUser.getUserByEmail(email);
+        return usersRepository.getUserByEmail(email);
+    }
+
+    @Transactional
+    public List<Users> getClients() {
+        List<Users> listClients = new ArrayList<Users>();
+        for (Users user : usersRepository.findAll()) {
+            if(user.getGroup() != null && "CLIENT".equals(user.getGroup().toUpperCase())) {
+                listClients.add(user);
+            }
+        }
+        return listClients;
     }
 
     @Transactional
     public void add(Users object) {
-        repositoryUser.save(object);
+        usersRepository.save(object);
     }
 
     @Transactional
     public void update(Users object) {
-        repositoryUser.save(object);
+        usersRepository.save(object);
 
     }
 
     @Transactional
     public void delete(int id) {
-        repositoryUser.delete(id);
+        usersRepository.delete(id);
     }
 }
