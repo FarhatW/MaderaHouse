@@ -1,6 +1,5 @@
 package org.ril.madera.model;
 
-import org.ril.madera.model.Pays;
 
 import javax.persistence.*;
 
@@ -9,7 +8,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "Ville")
-public class Ville {
+public class City {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,13 +19,32 @@ public class Ville {
 
     @ManyToOne
     @JoinColumn(name = "Pays_id")
-    private Pays pays;
+    private Country pays;
+
+    public City() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getName() {
         return name;
     }
 
-    public String getPays() {
-        return pays.getName();
+    public Country getPays() {
+        return pays;
+    }
+
+    public void setPays(Country pays) {
+        this.pays = pays;
     }
 }

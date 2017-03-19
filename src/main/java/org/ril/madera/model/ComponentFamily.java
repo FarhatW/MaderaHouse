@@ -3,11 +3,12 @@ package org.ril.madera.model;
 import javax.persistence.*;
 
 /**
- * Created by Jeremy on 10/03/2017.
+ * Created by Gamer on 19/03/2017.
  */
 @Entity
-@Table(name = "Pays")
-public class Pays {
+@Table(name = "famille de composant")
+public class ComponentFamily {
+
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,7 +17,19 @@ public class Pays {
     @Column(name = "nom")
     private String name;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

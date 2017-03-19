@@ -22,7 +22,7 @@ public class Site {
 
     @ManyToOne
     @JoinColumn(name = "Ville_id")
-    private Ville city;
+    private City city;
 
     public String getAdress() {
         return adress;
@@ -37,6 +37,6 @@ public class Site {
     }
 
     public String getPays() {
-        return city.getPays();
+        return city.getPays().getCountryName();
     }
 }

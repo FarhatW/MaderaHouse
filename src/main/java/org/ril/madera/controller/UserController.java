@@ -1,10 +1,15 @@
 package org.ril.madera.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import jdk.nashorn.internal.ir.RuntimeNode;
 import org.ril.madera.model.Users;
+import org.ril.madera.service.TokenAuthenticationService;
+
 import org.ril.madera.service.UsersServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -15,16 +20,16 @@ import org.springframework.web.servlet.ModelAndView;
 public class UserController {
 
 	@Autowired
-	private
-	UsersServices serviceUser;
+	private UsersServices serviceUser;
 
 	@RequestMapping(value =  { "/", "/index**" }, method = RequestMethod.GET, headers = "Accept=application/json")
 	public ModelAndView defaultPage() {
-		Authentication aut = SecurityContextHolder.getContext().getAuthentication();
-		Users user = serviceUser.getByEmail(aut.getName());
+		//final Authentication authentication = TokenAuthenticationService.getAuthentication();
+		//final Users currentUser = serviceUser.getByEmail(authentication.getName());
 		ModelAndView model = new ModelAndView();
-		model.addObject("user", user);
-		model.setViewName("Index");
+		model.addObject("title", "Spring Security Login Form - Database Authentication");
+		model.addObject("message", "This is default page!");
+		model.setViewName("users");
 		return model;
 	}
 

@@ -11,7 +11,7 @@ import javax.persistence.Table;
  * This is our model class and it corresponds to Country table in database
  */
 @Entity
-@Table(name="COUNTRY")
+@Table(name="Pays")
 public class Country{
 
 	@Id
@@ -19,19 +19,9 @@ public class Country{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	int id;
 
-	@Column(name="countryName")
-	String countryName;	
+	@Column(name="nom")
+	String name;
 
-	
-	public Country() {
-		super();
-	}
-
-	public Country(int i, String countryName,long population) {
-		super();
-		this.id = i;
-		this.countryName = countryName;
-	}
 	public int getId() {
 		return id;
 	}
@@ -39,10 +29,10 @@ public class Country{
 		this.id = id;
 	}
 	public String getCountryName() {
-		return countryName;
+		return name;
 	}
 	public void setCountryName(String countryName) {
-		this.countryName = countryName;
+		this.name = countryName;
 	}
 
 }

@@ -43,7 +43,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `madera`.`Ville`
+-- Table `madera`.`City`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `madera`.`Ville` ;
 

@@ -41,7 +41,7 @@ public class UsersServices {
     public List<Users> getClients() {
         List<Users> listClients = new ArrayList<Users>();
         for (Users user : usersRepository.findAll()) {
-            if(user.getGroup() != null && "CLIENT".equals(user.getGroup().toUpperCase())) {
+            if(user.getGroup() != null && "CLIENT".equals(user.getGroup().getNom().toUpperCase())) {
                 listClients.add(user);
             }
         }
@@ -63,4 +63,6 @@ public class UsersServices {
     public void delete(int id) {
         usersRepository.delete(id);
     }
+
+
 }

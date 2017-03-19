@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.ril.madera.model.Country;
-import org.ril.madera.repository.RepositoryCountry;
+import org.ril.madera.repository.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class ServicesCountry {
 
 	@Autowired
-	RepositoryCountry repositoryCountry;
+    CountryRepository repositoryCountry;
 	
 	@Transactional
 	public List<Country> getAll() {

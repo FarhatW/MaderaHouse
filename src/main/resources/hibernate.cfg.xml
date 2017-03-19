@@ -7,8 +7,18 @@
     <session-factory>
 		<mapping class="org.ril.madera.model.Users" />
         <mapping class="org.ril.madera.model.Groupe" />
-        <mapping class="org.ril.madera.model.Pays" />
-        <mapping class="org.ril.madera.model.Ville" />
+        <mapping class="org.ril.madera.model.Country" />
+        <mapping class="org.ril.madera.model.City" />
         <mapping class="org.ril.madera.model.Site" />
+        <mapping class="org.ril.madera.model.Project" />
+        <mapping class="org.ril.madera.model.CalcParameter" />
+        <mapping class="org.ril.madera.model.Component" />
+        <mapping class="org.ril.madera.model.ComponentFamily" />
+        <mapping class="org.ril.madera.model.Module" />
+        <mapping class="org.ril.madera.model.Provider" />
+        <mapping class="org.ril.madera.model.Quotation" />
+        <mapping class="org.ril.madera.model.RangeModel" />
+        <mapping class="org.ril.madera.model.Range" />
+        <mapping class="org.ril.madera.model.State" />
     </session-factory>
 </hibernate-configuration>
