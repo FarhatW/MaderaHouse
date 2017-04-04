@@ -2,6 +2,7 @@ target/
 <<<<<<< HEAD
 /.idea
 /.settings
+/madera.iml
 =======
 .idea/
 >>>>>>> develop

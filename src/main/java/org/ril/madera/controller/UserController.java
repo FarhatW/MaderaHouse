@@ -3,7 +3,7 @@ package org.ril.madera.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jdk.nashorn.internal.ir.RuntimeNode;
 import org.ril.madera.model.Users;
-import org.ril.madera.service.TokenAuthenticationService;
+//import org.ril.madera.service.TokenAuthenticationService;
 
 import org.ril.madera.service.UsersServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +29,7 @@ public class UserController {
 		ModelAndView model = new ModelAndView();
 		model.addObject("title", "Spring Security Login Form - Database Authentication");
 		model.addObject("message", "This is default page!");
-		model.setViewName("users");
+		model.setViewName("index");
 		return model;
 	}
 
