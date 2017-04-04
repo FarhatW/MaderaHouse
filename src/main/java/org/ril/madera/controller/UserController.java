@@ -1,7 +1,5 @@
 package org.ril.madera.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import jdk.nashorn.internal.ir.RuntimeNode;
 import org.ril.madera.model.Users;
 //import org.ril.madera.service.TokenAuthenticationService;
 
@@ -9,7 +7,6 @@ import org.ril.madera.service.UsersServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -34,14 +31,12 @@ public class UserController {
 	}
 
 	@RequestMapping(value =  { "/", "/EditDevis**" }, method = RequestMethod.GET, headers = "Accept=application/json")
-	public ModelAndView updateModule() {
+	public String updateModule(Model model) {
 		Authentication aut = SecurityContextHolder.getContext().getAuthentication();
 		Users user = serviceUser.getByEmail(aut.getName());
-		ModelAndView model = new ModelAndView();
-		model.addObject("user", user);
-		model.addObject("clients", serviceUser.getClients());
-		model.setViewName("EditDevis");
-		return model;
+		model.addAttribute("user", user);
+		model.addAttribute("clients", serviceUser.getClients());
+		return "editDevis";
 	}
 
 	@RequestMapping(value = "/users/{id}", method = RequestMethod.GET, headers = "Accept=application/json")

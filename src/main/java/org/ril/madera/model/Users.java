@@ -22,22 +22,22 @@ public class Users implements UserDetails {
     private String first_name;
 
 	@Column(name="nom")
-	long last_name;
+	String last_name;
 
 	@Column(name= "mail")
-	long email;
+	String email;
 
 	@Column(name="numeroTel")
-	long phone;
+	String phone;
 
 	@Column(name="token")
-	long token;
+	String token;
 
 	@Column(name="token_expir")
-	long expire;
+	String expire;
 
 	@Column(name="enabled")
-	long enabled;
+	String enabled;
 
 	@ManyToOne
 	@JoinColumn(name = "Groupe_id")
@@ -52,7 +52,7 @@ public class Users implements UserDetails {
 		super();
 	}
 
-	public Users(String first_name, long last_name, long email, long phone, long qr_code_id) {
+	public Users(String first_name, String last_name, String email, String phone, String qr_code_id) {
 		super();
 		this.first_name = first_name;
 		this.last_name = last_name;
@@ -60,48 +60,84 @@ public class Users implements UserDetails {
 		this.phone = phone;
 	}
 
-	public long getToken() {
-		return token;
+	public int getId() {
+		return id;
 	}
 
-	public void setToken(long token) {
-		this.token = token;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public long getExpire() {
-		return expire;
+	public String getFirst_name() {
+		return first_name;
 	}
 
-	public void setExpire(long expire) {
-		this.expire = expire;
+	public void setFirst_name(String first_name) {
+		this.first_name = first_name;
 	}
 
-    public int getId() {
-        return id;
-    }
-
-	public long getLast_name() {
+	public String getLast_name() {
 		return last_name;
 	}
 
-	public void setLast_name(long last_name) {
+	public void setLast_name(String last_name) {
 		this.last_name = last_name;
 	}
 
-	public long getEmail() {
+	public String getEmail() {
 		return email;
 	}
 
-	public void setEmail(long email) {
+	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	public long getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(long phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
+
+	public String getExpire() {
+		return expire;
+	}
+
+	public void setExpire(String expire) {
+		this.expire = expire;
+	}
+
+	public String getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(String enabled) {
+		this.enabled = enabled;
+	}
+
+	public Groupe getGroup() {
+		return group;
+	}
+
+	public void setGroup(Groupe group) {
+		this.group = group;
+	}
+
+	public Site getSite() {
+		return site;
+	}
+
+	public void setSite(Site site) {
+		this.site = site;
 	}
 
 	@Override
@@ -137,33 +173,5 @@ public class Users implements UserDetails {
 	@Override
 	public boolean isEnabled() {
 		return false;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getFirst_name() {
-		return first_name;
-	}
-
-	public void setFirst_name(String first_name) {
-		this.first_name = first_name;
-	}
-
-	public Groupe getGroup() {
-		return group;
-	}
-
-	public void setGroup(Groupe group) {
-		this.group = group;
-	}
-
-	public Site getSite() {
-		return site;
-	}
-
-	public void setSite(Site site) {
-		this.site = site;
 	}
 }

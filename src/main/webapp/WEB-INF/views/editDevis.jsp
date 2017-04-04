@@ -18,7 +18,7 @@
         <img class="img-responsive" src="logo.png">
     </div>
     <div class="col-xs-3 col-xs-offset-2">
-        <p class="pull-right" style="color: #6e6356; margin-top: 60px">Bonjour ${user.getlastName()}, <br/> <a href="index.html">Déconnexion</a>
+        <p class="pull-right" style="color: #6e6356; margin-top: 60px">Bonjour ${user.last_name}, <br/> <a href="index.html">Déconnexion</a>
         </p>
     </div>
 
@@ -28,7 +28,7 @@
         <p>Choix client : </p>
         <select class="form-control">
             <c:forEach var="client" items="${clients}">
-                <option value="${client}">${client.getlastName()} ${client.getfirstName()}</option>
+                <option value="${client}">${client.last_name} ${client.first_name}</option>
             </c:forEach>
         </select>
 
